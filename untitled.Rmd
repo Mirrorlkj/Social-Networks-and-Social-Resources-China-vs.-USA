@@ -1,0 +1,17 @@
+---
+title: "Untitled"
+author: "Kejing Li"
+date: "11/11/2019"
+"examples", "iris.sav",
+  package = "haven"
+output: html_document
+---
+```{r}
+library(haven)
+
+```
+
+```{r}
+data <- read_sav("data/ZA6980_v2-0-0.sav")
+```
+
