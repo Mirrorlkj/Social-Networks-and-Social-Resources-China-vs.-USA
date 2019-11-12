@@ -10,6 +10,7 @@ subtitle: "US vs China"
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(tidyverse)
+library(knitr)
 library(haven)
 theme_set(theme_minimal())
 ```
@@ -18,9 +19,9 @@ theme_set(theme_minimal())
 #import and tidy
 data <- read_sav("data/ZA6980_v2-0-0.sav")
 analysis_data <- data %>%
-  select("c_alphan", v22:v25, v35, v58, "HOMPOP", "URBRURAL") %>%
+  select("c_alphan", v22:v25, v58, "HOMPOP", "URBRURAL") %>%
   filter(c_alphan %in% c("CN", "US"))
-colnames(analysis_data) <- c("country", "ill", "depression", "family_problems", "social_occasion", "trust", "satifactory", "homepop", "urban_rural")
+colnames(analysis_data) <- c("country", "ill", "depression", "family_problems", "social_occasion", "satisfactory", "homepop", "urban_rural")
 ```
 
 ```{r ill}
@@ -37,7 +38,7 @@ analysis_data %>%
   scale_y_continuous(breaks = NULL) +
   coord_flip() +
   labs(
-    title = "Whom to ask for help: in household when ill?",
+    title = "Figure 1.Whom to ask for help:\n in household when ill?",
     x = "Ask ... for help",
     y = "Number of respondents in proportion",
     color = "Country",
@@ -59,7 +60,7 @@ analysis_data %>%
   ) +
   coord_flip() +
   labs(
-    title = "Whom to ask for help: in depression?",
+    title = "Figure 2.Whom to ask for help:\n in depression?",
     x = "Ask ... for help",
     y = "Number of respondents in proportion",
     color = "Country",
@@ -81,7 +82,7 @@ analysis_data %>%
   ) +
   coord_flip() +
   labs(
-    title = "Whom to ask for help: in giving advice about family problems?",
+    title = "Figure 3.Whom to ask for help: \n in giving advice about family problems?",
     x = "Ask ... for help",
     y = "Number of respondents in proportion",
     color = "Country",
@@ -103,7 +104,7 @@ analysis_data %>%
   ) +
   coord_flip() +
   labs(
-    title = "Whom to ask for help: in enjoying a social occasion with?",
+    title = "Figure 4.Whom to ask for help: \n in enjoying a social occasion with?",
     x = "Ask ... for help",
     y = "Number of respondents in proportion",
     color = "Country",
@@ -113,7 +114,84 @@ analysis_data %>%
 
 
 ```{r home population}
-
+home_population <- 
+  analysis_data %>%
+  group_by(country) %>%
+  summarize(mean(homepop)) 
+kable(home_population, 
+      col.names = c("Country", "Average home population"), 
+      caption =  "Home population by country",
+      format = "latex",
+      digits = 2,
+      align = "c")
 ```
 
+
+```{r Satisfactory and home population(China)}
+analysis_data %>%
+  filter(country == "CN") %>%
+  count(homepop,satisfactory) %>%
+  ggplot(aes(homepop,satisfactory))+
+  geom_tile(aes(fill = n))+
+  scale_x_continuous(breaks = seq(1, 13, 1))+
+  scale_y_continuous(
+    breaks = 1:7,
+    labels = c(
+      "Completely Satisfied ", "", "",
+      "Neither", "", "", "Completely dissatisfied")) +
+  labs(
+    title = "Figure 5.Satisfactory levels by home populations(China) ",
+    x = "Home polulation",
+    y = "Satidfactory Level",
+    fill = "Number",
+    caption = "Source: International Social Survey Programme (ISSP)"
+  )
+
+```
+```{r Satisfactory and home population(USA)}
+analysis_data %>%
+  filter(country == "US") %>%
+  count(homepop,satisfactory) %>%
+  ggplot(aes(homepop,satisfactory))+
+  geom_tile(aes(fill = n))+
+  scale_x_continuous(breaks = seq(1, 13, 1))+
+  scale_y_continuous(
+    breaks = 1:7,
+    labels = c(
+      "Completely Satisfied", "", "",
+      "Neither", "", "", "Completely dissatisfied")) +
+  labs(
+    title = "Figure 6.Satisfactory levels by home populations(USA) ",
+    x = "Home polulation",
+    y = "Satidfactory Level",
+    fill = "Number",
+    caption = "Source: International Social Survey Programme (ISSP)"
+  )
+```
+
+```{r urban_rural and satisfactory level}
+
+urban_rural_labs <- c("Big city",
+             "Suburbs or outskirts",
+             "Town",
+             "Village",
+             "Farm")
+names(urban_rural_labs) <- c(1:5)
+ 
+                     
+analysis_data %>%
+  ggplot(aes(satisfactory,..prop..))+
+  geom_bar()+
+  scale_x_continuous(
+    breaks = 1:7,
+    labels = 7:1) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
+  facet_grid(urban_rural ~ country,  labeller = labeller(urban_rural= urban_rural_labs))+
+  labs(
+    title = "Figure 7. Satisfactory level by place of living ",
+    x = "Satisfactory Level",
+    y = "Number",
+    caption = "Source: International Social Survey Programme (ISSP)"
+  )
+```
 
