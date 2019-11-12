@@ -1,0 +1,119 @@
+---
+title: "Social Networks and Social Resources"
+author: "Kejing Li"
+date: "11/11/2019"
+output:
+  pdf_document:
+subtitle: "US vs China"
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(haven)
+theme_set(theme_minimal())
+```
+
+```{r read data, cache = TRUE}
+#import and tidy
+data <- read_sav("data/ZA6980_v2-0-0.sav")
+analysis_data <- data %>%
+  select("c_alphan", v22:v25, v35, v58, "HOMPOP", "URBRURAL") %>%
+  filter(c_alphan %in% c("CN", "US"))
+colnames(analysis_data) <- c("country", "ill", "depression", "family_problems", "social_occasion", "trust", "satifactory", "homepop", "urban_rural")
+```
+
+```{r ill}
+analysis_data %>%
+  ggplot(aes(x = ill, y = ..density.., color = country)) +
+  geom_freqpoly() +
+  scale_x_continuous(
+    breaks = 1:9,
+    labels = c(
+      "Close family member", "More distant family member", "Close friend",
+      "Neighbour", "Someone I work with", "Someone else", "No one", "Can't choose", "No answer"
+    )
+  ) +
+  scale_y_continuous(breaks = NULL) +
+  coord_flip() +
+  labs(
+    title = "Whom to ask for help: in household when ill?",
+    x = "Ask ... for help",
+    y = "Number of respondents in proportion",
+    color = "Country",
+    caption = "Source: International Social Survey Programme (ISSP)"
+  )
+```
+
+```{r depression}
+analysis_data %>%
+  ggplot(aes(x = depression, y = ..density.., color = country)) +
+  geom_freqpoly() +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(
+    breaks = 1:9,
+    labels = c(
+      "Close family member", "More distant family member", "Close friend",
+      "Neighbour", "Someone I work with", "Someone else", "No one", "Can't choose", "No answer"
+    )
+  ) +
+  coord_flip() +
+  labs(
+    title = "Whom to ask for help: in depression?",
+    x = "Ask ... for help",
+    y = "Number of respondents in proportion",
+    color = "Country",
+    caption = "Source: International Social Survey Programme (ISSP)"
+  )
+```
+
+```{r Family Pproblems}
+analysis_data %>%
+  ggplot(aes(x = family_problems, y = ..density.., color = country)) +
+  geom_freqpoly() +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(
+    breaks = 1:9,
+    labels = c(
+      "Close family member", "More distant family member", "Close friend",
+      "Neighbour", "Someone I work with", "Someone else", "No one", "Can't choose", "No answer"
+    )
+  ) +
+  coord_flip() +
+  labs(
+    title = "Whom to ask for help: in giving advice about family problems?",
+    x = "Ask ... for help",
+    y = "Number of respondents in proportion",
+    color = "Country",
+    caption = "Source: International Social Survey Programme (ISSP)"
+  )
+```
+
+```{r  social occasion}
+analysis_data %>%
+  ggplot(aes(x = social_occasion, y = ..density.., color = country)) +
+  geom_freqpoly() +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(
+    breaks = 1:9,
+    labels = c(
+      "Close family member", "More distant family member", "Close friend",
+      "Neighbour", "Someone I work with", "Someone else", "No one", "Can't choose", "No answer"
+    )
+  ) +
+  coord_flip() +
+  labs(
+    title = "Whom to ask for help: in enjoying a social occasion with?",
+    x = "Ask ... for help",
+    y = "Number of respondents in proportion",
+    color = "Country",
+    caption = "Source: International Social Survey Programme (ISSP)"
+  )
+```
+
+
+```{r home population}
+
+```
+
+
