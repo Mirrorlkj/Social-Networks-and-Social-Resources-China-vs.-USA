@@ -164,6 +164,8 @@ analysis_data %>%
 ## Home population
 From the above analysis, it is quite evident that close family members are the core of the social networks whatever the country is, though the Chinese more rely on families than Americans. 
 
+Since the family is an indispensable element of social networks, a question arises on the active individuals that exerting the influence(Table 1). Here, the satisfactory level is included to see whether the number of family members positively related to the life satisfaction level of an individual. 
+
 ```{r home population}
 home_population <- 
   analysis_data %>%
@@ -176,8 +178,6 @@ kable(home_population,
       digits = 2,
       align = "c")
 ```
-
-Since the family is an indispensable element of social networks, a question arises on the active individuals that exerting the influence. Here, the satisfactory level is included to see whether the number of family members positively related to the life satisfaction level of an individual. 
 
 ### China
 For China, life satisfactory doesn’t seem to have a relationship with the home population. In figure 5, for any given number of home population, the majority of people (the lightest block in each column fall into that chosen home population all feel fairly satisfied, uninfluenced by the value of the home population. 
