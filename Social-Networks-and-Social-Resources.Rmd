@@ -263,3 +263,7 @@ analysis_data %>%
 - The home population doesn’t have an influence on life satisfactory in China, while in the US, homes of 2 and 4 are more satisfied than the others. 
 - In general, Americans are more satisfied towards their life than Chinese.
 
+# Citation
+ISSP Research Group (2019): International Social Survey Programme: Social Networks and Social Resources - ISSP 2017. GESIS Data Archive, Cologne. ZA6980 Data file Version 2.0.0, doi:10.4232/1.13322
+
+

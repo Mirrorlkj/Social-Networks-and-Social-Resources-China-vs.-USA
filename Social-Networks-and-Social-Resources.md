@@ -23,7 +23,8 @@ Kejing Li
           - [China](#china)
           - [USA](#usa)
   - [Social resources](#social-resources)
-  - [Conclusions：](#conclusions)
+  - [Conclusions](#conclusions)
+  - [Citation](#citation)
 
 # Introduction
 
@@ -59,14 +60,17 @@ and groups, duties and rights in social networks and social trust.
 
 ## Selection Method
 
-\-Probability Sample -Probability Sample: Simple random -Probability
-Sample: Systematic random -Probability Sample: Stratified -Probability
-Sample: Multistage
+  - Probability Sample
+  - Probability Sample: Simple random
+  - Probability Sample: Systematic random
+  - Probability Sample: Stratified
+  - Probability Sample: Multistage
 
 ## Mode of Data Collection
 
-\-Face-to-face interview -Self-administered questionnaire -Telephone
-interview
+  - Face-to-face interview
+  - Self-administered questionnaire
+  - Telephone interview
 
 ## Variables Selected for the analysis purpose
 
@@ -127,10 +131,10 @@ are the core of the social networks whatever the country is, though the
 Chinese more rely on families than Americans.
 
 Since the family is an indispensable element of social networks, a
-question arises on the active individuals that exerting the influence.
-Here, the satisfactory level is included to see whether the number of
-family members positively related to the life satisfaction level of an
-individual.
+question arises on the active individuals that exerting the
+influence(Table 1). Here, the satisfactory level is included to see
+whether the number of family members positively related to the life
+satisfaction level of an individual.
 
 ### China
 
@@ -161,7 +165,7 @@ between the two countries is caused by different social resources.
 
 ![](Social-Networks-and-Social-Resources_files/figure-gfm/urban_rural%20and%20satisfactory%20level-1.png)<!-- -->
 
-# Conclusions：
+# Conclusions
 
   - Chinese are more family-oriented than Americans in terms of social
     networks.
@@ -171,3 +175,9 @@ between the two countries is caused by different social resources.
     the others.
   - In general, Americans are more satisfied towards their life than
     Chinese.
+
+# Citation
+
+ISSP Research Group (2019): International Social Survey Programme:
+Social Networks and Social Resources - ISSP 2017. GESIS Data Archive,
+Cologne. ZA6980 Data file Version 2.0.0, <doi:10.4232/1.13322>
