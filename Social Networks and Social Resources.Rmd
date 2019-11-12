@@ -29,16 +29,16 @@ The International Social Survey Programme (ISSP) is a continuing annual program 
 ‘Social Networks’ is one of the eleven ISSP topic modules. ISSP Social Networks modules essentially deal with issues, such as nature and contacts with family members and friends, participation in associations and groups, duties and rights in social networks and social trust. 
 
 ## Selection Method
--Probability Sample
--Probability Sample: Simple random
--Probability Sample: Systematic random
--Probability Sample: Stratified
--Probability Sample: Multistage
+- Probability Sample
+- Probability Sample: Simple random
+- Probability Sample: Systematic random
+- Probability Sample: Stratified
+- Probability Sample: Multistage
 
 ## Mode of Data Collection
--Face-to-face interview
--Self-administered questionnaire
--Telephone interview
+- Face-to-face interview
+- Self-administered questionnaire
+- Telephone interview
 
 ## Variables Selected for the analysis purpose 
 1. v22 Q7b Whom to ask for help: in household when ill?
