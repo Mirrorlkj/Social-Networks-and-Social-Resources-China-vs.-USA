@@ -1,4 +1,4 @@
-# hw06
+# Social Networks and Social Resources: China vs. USA
 
 ## Required Package 
 
@@ -9,9 +9,6 @@ library(haven)
 ```
 
 ## Introduction
-This repo is a course exercise which analyzed  the Social Networks and Social Resources
-
-Relevant files include：
 
 1. [report_pdf](Social-Networks-and-Social-Resources.pdf)
 
